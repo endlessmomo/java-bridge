@@ -10,17 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BridgeSizeTest {
     @ParameterizedTest
-    @DisplayName("문자열이 입력된 경우")
-    @ValueSource(strings = {"21a", "13a", "24a", "a21"})
-    void convertStringToIntException(String input) {
-        assertThatThrownBy(() -> new BridgeSize(input))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @ParameterizedTest
     @DisplayName("3 미만 20 초과한 데이터 값")
-    @ValueSource(strings = {"21", "1", "38", "2"})
-    void incorrectData(String input) {
+    @ValueSource(ints = {21, 1, 38, 2})
+    void incorrectData(int input) {
         assertThatThrownBy(() -> new BridgeSize(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -29,7 +21,7 @@ class BridgeSizeTest {
     @Test
     void isCorrectDataCase1() {
         //given
-        String input = "20";
+        int input = 20;
         //when
         //then
         assertEquals(new BridgeSize(input).getBridgeSize(), 20);
