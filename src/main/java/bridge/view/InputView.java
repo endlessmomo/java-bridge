@@ -17,7 +17,11 @@ public class InputView {
      */
     public int readBridgeSize() {
         System.out.println(Text.INPUT_BRIDGE_LENGTH);
-        return new BridgeSize(readLine()).getBridgeSize();
+        try {
+            return Integer.parseInt(readLine());
+        } catch (Exception e){
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -25,14 +29,14 @@ public class InputView {
      */
     public String readMoving() {
         System.out.println(Text.MOVE_TO_WHERE);
-        return MoveControl.of(readLine());
+        return readLine();
     }
 
     /**
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
-    public boolean readGameCommand() {
+    public String readGameCommand() {
         System.out.println(Text.RETRY_OR_CLOSE);
-        return Command.isReplay(readLine());
+        return readLine();
     }
 }
