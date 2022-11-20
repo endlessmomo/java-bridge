@@ -3,18 +3,9 @@ package bridge.model;
 public class BridgeSize {
     private final int bridgeSize;
 
-    public BridgeSize(String bridgeSize){
-        int value = convertToInt(bridgeSize);
-        checkRange(value);
-        this.bridgeSize = value;
-    }
-
-    private int convertToInt(String inputSize){
-        try{
-            return Integer.parseInt(inputSize);
-        } catch (NumberFormatException e){
-            throw new IllegalArgumentException();
-        }
+    public BridgeSize(int bridgeSize){
+        checkRange(bridgeSize);
+        this.bridgeSize = bridgeSize;
     }
 
     private void checkRange(int inputSize){
@@ -24,6 +15,6 @@ public class BridgeSize {
     }
 
     public int getBridgeSize(){
-        return this.bridgeSize;
+        return bridgeSize;
     }
 }

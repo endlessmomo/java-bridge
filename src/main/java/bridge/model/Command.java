@@ -2,9 +2,6 @@ package bridge.model;
 
 import bridge.constance.CustomErrorMessage;
 
-import java.util.Arrays;
-import java.util.List;
-
 public enum Command {
     RETRY("R"),
     CLOSE("Q");
@@ -15,10 +12,14 @@ public enum Command {
         this.choose = choose;
     }
 
-    public static boolean isReplay(String choose) {
+    public static Command isReplay(String choose) {
         validate(choose);
 
-        return choose.equals(RETRY.choose);
+        if(choose.equals(RETRY.choose)){
+            return RETRY;
+        }
+
+        return CLOSE;
     }
 
     private static void validate(String choose) {
@@ -40,6 +41,6 @@ public enum Command {
     }
 
     public String getChoose() {
-        return this.choose;
+        return choose;
     }
 }
