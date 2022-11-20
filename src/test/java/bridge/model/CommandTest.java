@@ -32,7 +32,7 @@ class CommandTest {
         String input = "R";
         //when
         //then
-        assertTrue(Command.isReplay(input));
+        assertEquals(Command.RETRY,Command.isReplay(input));
     }
 
     @DisplayName("정확한 값이 들어오는지 여부 확인 2")
@@ -42,7 +42,7 @@ class CommandTest {
         String input = "Q";
         //when
         //then
-        assertFalse(Command.isReplay(input));
+        assertEquals(Command.CLOSE,Command.isReplay(input));
     }
 
 }
