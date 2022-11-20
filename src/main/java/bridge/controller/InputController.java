@@ -12,7 +12,7 @@ public class InputController {
         try{
             return new BridgeSize(inputView.readBridgeSize()).getBridgeSize();
         } catch (Exception e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("");
         }
     }
 
@@ -20,7 +20,7 @@ public class InputController {
         try {
             return MoveControl.of(inputView.readMoving());
         } catch (Exception e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("");
         }
     }
 
@@ -28,7 +28,7 @@ public class InputController {
         try {
             return Command.isReplay(inputView.readGameCommand()).getChoose();
         } catch (Exception e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("");
         }
     }
 
