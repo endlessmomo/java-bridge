@@ -24,9 +24,9 @@ public class InputController {
         }
     }
 
-    public static String getCommand() {
+    public static Command getCommand() {
         try {
-            return Command.isReplay(inputView.readGameCommand()).getChoose();
+            return Command.of(inputView.readGameCommand());
         } catch (Exception e){
             throw new IllegalArgumentException("");
         }
